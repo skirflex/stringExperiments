@@ -1,3 +1,5 @@
+import java.util.regex.Pattern;
+
 public class Loader
 {
     public static void main(String[] args)
@@ -5,10 +7,14 @@ public class Loader
         Integer v=0;
         Integer p=0;
         Integer m=0;
-        String text = "Вася заработал 554345 рублей, Петя - 57563 рубля, а Маша - 530000 рублей";
+        String text = "Вася заработал 100 рублей, Петя - 100 рубля, а Маша - 100 рублей";
         String zpVasya;
         String zpPetya;
         String zpMasha;
+        String [] sum;
+        Integer summa = 0;
+
+        //==================================================== Первый спопсоб
         int v1, v2 , v3 , v4 , v5 , v6;
         v1 = text.indexOf("Вася заработал");
         v2 = text.indexOf("рублей");
@@ -25,5 +31,13 @@ public class Loader
         System.out.println(v + p + m);
 
         System.out.println();
+
+        //==================================================== Второй способ
+        text = text.replaceAll("[\\D]" , " ").trim();
+        sum = text.split("\\s+");
+        for (int i = 0; i < sum.length ; i++) {
+            summa += summa.parseInt(sum[i]);
+        }
+        System.out.println("Сумма ребят составляет:" + summa);
     }
 }
