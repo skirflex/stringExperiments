@@ -22,6 +22,7 @@ public class CheckName {
             } else {
                 System.out.println("Неправильно написано ФИО");
             }
+            // Проверка работы
         }
 
     }
